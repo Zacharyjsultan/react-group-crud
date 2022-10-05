@@ -18,7 +18,7 @@ export default function Auth() {
     setPassword('');
   };
 
-  if (user) { return <Redirect to="/Reviews" />; }
+  if (user) { return <Redirect to="/reviews" />; }
 
   return (
     <div className='auth'>

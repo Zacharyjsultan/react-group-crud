@@ -11,7 +11,6 @@ export default function useReview() {
       try {
     
         const data = await getReviews();
-        
         setReview(data);
         setLoading(false);
       } catch (e) {
@@ -20,7 +19,7 @@ export default function useReview() {
       }
     };
     fetchReview();
-  });
+  }, []);
   return { review, setReview, error, loading };
 }
 
