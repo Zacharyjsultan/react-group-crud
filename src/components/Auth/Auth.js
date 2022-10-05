@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Redirect, useParams } from 'react-router-dom';
-import { useUser } from '../context/UserContext';
-import { authUser } from '../services/auth';
+import { useUser } from '../../context/UserContext';
+import { authUser } from '../../services/auth';
+import './Auth.css';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
@@ -19,8 +21,12 @@ export default function Auth() {
   if (user) { return <Redirect to="/Reviews" />; }
 
   return (
-    <>
-      <div>
+    <div className='auth'>
+      <div className='tabs'>
+        <NavLink to="/auth/sign-in" className='link'>Sign-In</NavLink>
+        <NavLink to="/auth/sign-up" className='link'>Sign-Up</NavLink>
+      </div>
+      <div className='form'>
         <div className="log-in-controls">
           <label>Email=</label>
           <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -31,6 +37,6 @@ export default function Auth() {
         </div>
         <button onClick={submitAuth}>Submit</button>
       </div>
-    </>
+    </div>
   );
 }

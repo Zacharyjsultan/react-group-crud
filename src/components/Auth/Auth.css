@@ -1,0 +1,22 @@
+.auth {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    margin-top: 2vh;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    gap: 3vh;
+}
+
+.form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
