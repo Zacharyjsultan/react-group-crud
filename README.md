@@ -24,3 +24,10 @@ User creates/edits review -1 component - sends to supabase
 Try to implement rating system from MUI
 
             SUPABASE RLS
+
+            ---------------------------------
+
+            10/6
+Navlinks
+Create post - similar to EditReviews
+delete post - useEffect function to rerender page after delete 
