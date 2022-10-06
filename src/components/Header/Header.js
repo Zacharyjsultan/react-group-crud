@@ -12,7 +12,7 @@ export default function Header() {
   }; 
   return (
     <div className='header'>
-      <h2>Rest. Reviews</h2>
+      <h2>E/Z Restaurant Reviewer</h2>
       {user && (
         <>
           <div>Welcome {user.email}</div>
