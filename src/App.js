@@ -12,7 +12,8 @@ function App() {
       <Switch>
         <Route path="/auth/:type" component={Auth} />
         <Route path="/reviews" component={Reviews} />
-        <Route path="/review/form" component={ReviewForm} /> 
+        <Route path="/review/form/edit" component={ReviewForm} /> 
+        <Route path="/review/form/create" component={ReviewForm} /> 
         <Route path="/" component={Auth}></Route>
         <Route path="*"> <Redirect to="/auth/auth" /> </Route>
         

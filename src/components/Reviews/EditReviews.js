@@ -1,20 +1,18 @@
 import React from 'react';
-import { makeReview } from '../../services/reviews';
+import { useHistory } from 'react-router-dom';
+import { editReview } from '../../services/reviews';
 import ReviewForm from './ReviewForm';
 
 export default function EditReviews() {
-
+  const history = useHistory();
   const editHandler = async (restaurant, rating, description) => {
     try {
-      await makeReview(rating, description, restaurant);
+      await editReview(rating, description, restaurant);
       history.push('/reviews');
     } catch (e) {
       console.error(e.message);
     }
   }; 
-  return (
-    <div>
-      <ReviewForm clickHandler={editHandler} />
-    </div>
-  );
+  return <ReviewForm clickHandler={editHandler} />;
+
 }

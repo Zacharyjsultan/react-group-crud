@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useReview from '../../hooks/useReview';
+import ReviewCard from './ReviewCard';
 import './Reviews.css';
 export default function Reviews() {
 
@@ -10,17 +11,11 @@ export default function Reviews() {
 
   return (
     <div>
-      {review.map((review) => {
-        return (
-          <div className="big-div" key={review.id}>
-            
-            <div>{review.restaurant}</div>
-            <div>{review.description}</div>
-            <div> {review.rating} </div>
-            <Link to={`/reviews/editreviews/`}>Edit Review</Link>
-          </div>
-        );
-      })}
+      {review.map((review) => (
+        <ReviewCard key={review.id} {...review} />
+      )
+        
+      )}
     </div>
   );
 }
