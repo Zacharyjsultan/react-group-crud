@@ -10,14 +10,14 @@ export async function makeReview(restaurant, description, rating) {
   return response.data;
 }
 
-export async function editReview(id, restaurant, description, rating) {
+export async function editReview(id, rating, description, restaurant) {
   const response = await client.from('reviews').update({ restaurant, description, rating }). match({ id });
-  return response;
+  return checkError(response);
 }
 
 export async function getReview(id) {
   const response = await client.from('reviews').select('*').match({ id }).single();
-  return response;
+  return checkError(response);
 }
 
 

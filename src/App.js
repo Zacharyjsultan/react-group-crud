@@ -2,7 +2,8 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Auth from './components/Auth/Auth';
 import Header from './components/Header/Header';
-import ReviewForm from './components/Reviews/ReviewForm';
+import EditReviews from './components/Reviews/EditReviews';
+import CreateReview from './components/Reviews/CreateReview';
 import Reviews from './components/Reviews/Reviews';
 
 function App() {
@@ -12,8 +13,8 @@ function App() {
       <Switch>
         <Route path="/auth/:type" component={Auth} />
         <Route path="/reviews" component={Reviews} />
-        <Route path="/review/form/edit" component={ReviewForm} /> 
-        <Route path="/review/form/create" component={ReviewForm} /> 
+        <Route path="/review/form/edit/:id" component={EditReviews} /> 
+        <Route path="/review/form/create" component={CreateReview} /> 
         <Route path="/" component={Auth}></Route>
         <Route path="*"> <Redirect to="/auth/auth" /> </Route>
         

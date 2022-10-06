@@ -1,11 +1,8 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getReview } from '../services/reviews';
+import { useEffect, useState } from 'react';
+import { getReviews } from '../services/reviews';
 
-export default function useReview() {
-  const { id } = useParams();
-  const [review, setReview] = useState({});
+export default function useReviews() {
+  const [review, setReview] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
@@ -14,7 +11,7 @@ export default function useReview() {
       setLoading(true);
       try {
     
-        const data = await getReview(id);
+        const data = await getReviews();
         setReview(data);
         setLoading(false);
       } catch (e) {
@@ -23,6 +20,8 @@ export default function useReview() {
       }
     };
     fetchReview();
-  }, [id]);
+  }, []);
   return { review, setReview, error, loading, setLoading };
 }
+
+
