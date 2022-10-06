@@ -1,5 +1,11 @@
+Supabase:
+id - int8 key
+user_id
+restaurant 
+rating
+description
 
-
+------------------------------------------
 last user story 
 Reviews.js maps out all reviews from SUpa
 
