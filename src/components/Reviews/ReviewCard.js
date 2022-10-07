@@ -7,7 +7,7 @@ import './Reviews.css';
 
 
 export default function ReviewCard({ rating, description, restaurant, user_id, id }) {
-  
+
   const { user } = useUser();
   const reviewer = user.id === user_id;
   const { setReview, review, setLoading } = useReviews();
