@@ -6,8 +6,10 @@
     gap: 2vh;
     margin-top: 2vh;
     text-decoration: underline;
-    
-    
+    padding: 150px;
+    font-size: 20px;
+    border: solid 2px;
+    height: fit-content;
 }
 
 .tabs {
@@ -24,4 +26,5 @@
     gap: 2vh;
     
 }
+
 

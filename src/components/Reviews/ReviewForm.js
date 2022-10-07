@@ -12,7 +12,7 @@ export default function ReviewForm({
   const [descriptionInput, setDescriptionInput] = useState(description);
 
   return (
-    <div>
+    <div className='updater'>
       <h2>Restaurant Reviewer</h2>
 
       <input

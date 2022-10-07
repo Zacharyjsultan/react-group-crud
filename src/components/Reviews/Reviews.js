@@ -26,7 +26,7 @@ export default function Reviews() {
   return (
     <>
       <p></p>
-      <NavLink to="/review/form/create">Create Review</NavLink>
+      <NavLink className='createButton' to="/review/form/create">Create Review</NavLink>
       <div>
         {reviews.map((review) => (
           <ReviewCard key={review.id} {...review} handleDelete={clickHandler} />
