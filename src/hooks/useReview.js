@@ -19,6 +19,7 @@ export default function useReview() {
         setLoading(false);
       } catch (e) {
         setError(e.message);
+        setReview({});
         setLoading(false);
       }
     };

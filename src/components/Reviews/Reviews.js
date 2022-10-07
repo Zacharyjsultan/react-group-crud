@@ -11,13 +11,13 @@ import './Reviews.css';
 export default function Reviews() {
   const { user } = useUser();
   const { reviews, loading, error, setReviews } = useReviews();
-  const { setLoading } = useReview();
+  
   if (loading) return <h2>Loading Review..</h2>;
   if (error) return <h2>{error}</h2>;
 
   const clickHandler = async (id) => {
     if (!user) return;
-    setLoading(true);
+    
     await deleteReview(id);
     setReviews(await getReviews());
     console.log(id);
