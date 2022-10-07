@@ -9,16 +9,15 @@ export default function CreateReview() {
   const { setLoading } = useReview();
 
   const handleClick = async (restaurant, description, rating) => {
-    console.log('restaurant', restaurant);
-    console.log('description', description);
-    console.log('rating', rating);
+  
     setLoading(true);
     try {
-      const data = await makeReview(restaurant, description, rating);
-      console.log('data', data);
+      await makeReview(restaurant, description, rating);
+      
       history.push('/reviews');
     } catch (e) {
-      console.log(e.message);
+      //eslint-disable-next-line
+      console.error(e.message);
     }
   };
   return <ReviewForm clickHandler={handleClick} />;
