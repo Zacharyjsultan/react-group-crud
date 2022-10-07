@@ -11,10 +11,10 @@ export default function EditReviews() {
   const history = useHistory();
   if (loading) return <p>This page is loading...</p>;
 
-  const editHandler = async (restaurant, rating, description) => {
+  const editHandler = async (restaurant, description, rating) => {
     setLoading(true);
     try {
-      await editReview(review.id, rating, description, restaurant);
+      await editReview(review.id, restaurant, description, rating);
       history.push('/reviews');
     } catch (error) {
       console.error(error.message);

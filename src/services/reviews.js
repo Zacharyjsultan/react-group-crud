@@ -10,7 +10,7 @@ export async function makeReview(restaurant, description, rating) {
   return checkError(response);
 }
 
-export async function editReview(id, rating, description, restaurant) {
+export async function editReview(id, restaurant, description, rating) {
   const response = await client
     .from('reviews')
     .update({ restaurant, description, rating })
