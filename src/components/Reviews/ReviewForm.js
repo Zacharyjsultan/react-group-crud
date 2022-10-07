@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import './ReviewForm.css';
 
 export default function ReviewForm({
   restaurant = '',
