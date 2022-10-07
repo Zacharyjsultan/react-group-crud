@@ -13,11 +13,13 @@ function App() {
       <Switch>
         <Route path="/auth/:type" component={Auth} />
         <Route path="/reviews" component={Reviews} />
-        <Route path="/review/form/edit/:id" component={EditReviews} /> 
-        <Route path="/review/form/create" component={CreateReview} /> 
+        <Route path="/review/form/edit/:id" component={EditReviews} />
+        <Route path="/review/form/create" component={CreateReview} />
         <Route path="/" component={Auth}></Route>
-        <Route path="*"> <Redirect to="/auth/auth" /> </Route>
-        
+        <Route path="*">
+          {' '}
+          <Redirect to="/auth/auth" />{' '}
+        </Route>
       </Switch>
     </div>
   );
