@@ -7,11 +7,14 @@ export async function getReviews() {
 
 export async function makeReview(restaurant, description, rating) {
   const response = await client.from('reviews').insert({ restaurant, description, rating });
-  return response.data;
+  return checkError(response);
 }
 
 export async function editReview(id, rating, description, restaurant) {
-  const response = await client.from('reviews').update({ restaurant, description, rating }). match({ id });
+  const response = await client
+    .from('reviews')
+    .update({ restaurant, description, rating })
+    .match({ id });
   return checkError(response);
 }
 
@@ -19,7 +22,6 @@ export async function getReview(id) {
   const response = await client.from('reviews').select('*').match({ id }).single();
   return checkError(response);
 }
-
 
 export async function deleteReview(id) {
   const response = await client.from('reviews').delete().match({ id }).single();

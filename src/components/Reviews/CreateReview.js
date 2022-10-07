@@ -8,10 +8,14 @@ export default function CreateReview() {
   const history = useHistory();
   const { setLoading } = useReview();
 
-  const handleClick = async (restaurantInput, ratingInput, descriptionInput) => {
+  const handleClick = async (restaurant, description, rating) => {
+    console.log('restaurant', restaurant);
+    console.log('description', description);
+    console.log('rating', rating);
     setLoading(true);
     try {
-      await makeReview(restaurantInput, ratingInput, descriptionInput);
+      const data = await makeReview(restaurant, description, rating);
+      console.log('data', data);
       history.push('/reviews');
     } catch (e) {
       console.log(e.message);
