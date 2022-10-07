@@ -5,7 +5,7 @@
     align-items: center;
     gap: 2vh;
     margin-top: 2vh;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     padding: 150px;
     font-size: 20px;
     border: solid 2px;
@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: row;
     gap: 3vh;
+
 }
 
 .form {
@@ -26,5 +27,6 @@
     gap: 2vh;
     
 }
-
-
+ .link {
+    text-decoration: none;
+ }

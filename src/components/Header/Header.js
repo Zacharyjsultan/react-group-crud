@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useUser } from '../../context/UserContext';
 import { signOut } from '../../services/auth';
 import './Header.css';
@@ -9,9 +10,10 @@ export default function Header() {
   const handleClick = async () => {
     await signOut();
     setUser(null);
-  }; 
+  };
+
   return (
-    <div className='header'>
+    <div className="header">
       <h2>E/Z Restaurant Reviewer</h2>
       {user && (
         <>
@@ -19,9 +21,6 @@ export default function Header() {
           <button onClick={handleClick}>Sign Out</button>
         </>
       )}
-
-    
-    
     </div>
   );
 }

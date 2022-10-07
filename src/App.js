@@ -15,11 +15,10 @@ function App() {
         <Route path="/reviews" component={Reviews} />
         <Route path="/review/form/edit/:id" component={EditReviews} />
         <Route path="/review/form/create" component={CreateReview} />
-        <Route path="/" component={Auth}></Route>
         <Route path="*">
-          {' '}
-          <Redirect to="/auth/auth" />{' '}
+          <Redirect to="/auth/auth" />
         </Route>
+        <Route path="/" component={Auth}></Route>
       </Switch>
     </div>
   );

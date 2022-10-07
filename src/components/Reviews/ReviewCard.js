@@ -12,13 +12,24 @@ export default function ReviewCard({ rating, description, restaurant, user_id, i
 
   return (
     <div className="big-div">
-      <h2>{restaurant}</h2>
-      <h5>{rating}</h5>
-      <p>{description}</p>
+      <h2>
+        Restaurant: <br></br>
+        {restaurant}
+      </h2>
+      <h5>
+        Rating: <br></br>
+        {rating}
+      </h5>
+      <p>
+        Review: <br></br>
+        {description}
+      </p>
       {reviewer && (
         <>
           <button onClick={() => handleDelete(id)}> Delete </button>
-          <Link to={`/review/form/edit/${id}`}>Edit</Link>
+          <Link to={`/review/form/edit/${id}`} className="link">
+            Edit
+          </Link>
         </>
       )}
     </div>

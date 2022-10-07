@@ -18,15 +18,21 @@ export default function Auth() {
     setPassword('');
   };
 
-  if (user) { return <Redirect to="/reviews" />; }
+  if (user) {
+    return <Redirect to="/reviews" />;
+  }
 
   return (
-    <div className='auth'>
-      <div className='tabs'>
-        <NavLink to="/auth/sign-in" className='link'>Sign-In</NavLink>
-        <NavLink to="/auth/sign-up" className='link'>Sign-Up</NavLink>
+    <div className="auth">
+      <div className="tabs">
+        <NavLink to="/auth/sign-in" className="link" activeStyle={{ textDecoration: 'underline' }}>
+          Sign-In
+        </NavLink>
+        <NavLink to="/auth/sign-up" className="link" activeStyle={{ textDecoration: 'underline' }}>
+          Sign-Up
+        </NavLink>
       </div>
-      <div className='form'>
+      <div className="form">
         <div className="log-in-controls">
           <label>Email=</label>
           <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
