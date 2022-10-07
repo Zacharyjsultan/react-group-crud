@@ -20,6 +20,7 @@ export default function Reviews() {
     setLoading(true);
     await deleteReview(id);
     setReviews(await getReviews());
+    console.log(id);
   };
 
   return (

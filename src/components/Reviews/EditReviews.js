@@ -20,5 +20,10 @@ export default function EditReviews() {
       console.error(error.message);
     }
   };
-  return <ReviewForm {...review} clickHandler={editHandler} />;
+  return <>
+    <p></p>
+    
+    <ReviewForm {...review} clickHandler={editHandler} />
+  </>;
+  
 }

@@ -17,7 +17,7 @@ export default function ReviewCard({ rating, description, restaurant, user_id, i
       <p>{description}</p>
       {reviewer && (
         <>
-          <button onClick={handleDelete}> Delete </button>
+          <button onClick={() => handleDelete(id)}> Delete </button>
           <Link to={`/review/form/edit/${id}`}>Edit</Link>
         </>
       )}
