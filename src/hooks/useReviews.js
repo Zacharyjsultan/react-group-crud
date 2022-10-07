@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getReviews } from '../services/reviews';
 
 export default function useReviews() {
-  const [review, setReview] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
@@ -10,9 +10,8 @@ export default function useReviews() {
     const fetchReview = async () => {
       setLoading(true);
       try {
-    
         const data = await getReviews();
-        setReview(data);
+        setReviews(data);
         setLoading(false);
       } catch (e) {
         setError(e.message);
@@ -21,7 +20,5 @@ export default function useReviews() {
     };
     fetchReview();
   }, []);
-  return { review, setReview, error, loading, setLoading };
+  return { reviews, setReviews, error, loading, setLoading };
 }
-
-
