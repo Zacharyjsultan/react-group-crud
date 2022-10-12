@@ -12,7 +12,7 @@ const mockUser = {
   id: '0dab2c65-5911-469c-9f12-8fb47ebe52f2',
   aud: 'authenticated',
   role: 'authenticated',
-  email: 'zach@example.com',
+  email: 'example@example.com',
 };
 
 test('auth log in ', () => {
