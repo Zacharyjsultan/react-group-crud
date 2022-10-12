@@ -34,12 +34,17 @@ export default function Auth() {
       </div>
       <div className="form">
         <div className="log-in-controls">
-          <label>Email=</label>
-          <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <label htmlFor="email">Email=</label>
+          <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div className="log-in-controls">
-          <label>Password=</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <label htmlFor="password">Password=</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
         <button onClick={submitAuth}>Submit</button>
       </div>
