@@ -63,31 +63,56 @@ test('signed in users should see a list of reviews', async () => {
   await screen.findByText(/Fake Reviews #2/i);
 });
 
-const newReview = [
+const mockReviews = [
+  {
+    id: 1,
+    restaurant: 'TacoSmell',
+    rating: 3,
+    description: 'YUCKCKK',
+    user_id: '0dab2c65-5911-469c-9f12-8fb47ebe52f2',
+  },
   {
     id: 2,
-    restaurant: 'review',
-    description: 'review description',
+    restaurant: 'KFC',
+    rating: 5,
+    description: 'Fine Dining',
     user_id: '0dab2c65-5911-469c-9f12-8fb47ebe52f2',
   },
 ];
 
-test('users can make review', async () => {
+const mockReview = {
+  id: 3,
+  restaurant: 'Wackarnolds',
+  rating: 2,
+  description: 'MMM Delicioso!',
+  user_id: '0dab2c65-5911-469c-9f12-8fb47ebe52f2',
+};
+
+test('User can add review', async () => {
   authFns.getUser.mockReturnValue(mockUser);
-  reviewsFns.makeReview.mockReturnValue(newReview.restaurant, newReview.description);
+  reviewsFns.getReviews.mockReturnValue(mockReviews);
+  reviewsFns.makeReview.mockReturnValue(mockReview);
   render(
     <UserProvider>
-      <MemoryRouter initialEntries={['/reviews']}>
+      <MemoryRouter initialEntries={['/review/form/create']}>
         <App />
       </MemoryRouter>
     </UserProvider>
   );
+  const restaurantInput = screen.getByLabelText('Restaurant:');
+  fireEvent.change(restaurantInput, { target: { value: 'Wackarnolds' } });
 
-  const restaurantInput = screen.getByLabelText('restaurant');
-  fireEvent.change(restaurantInput, { target: { value: 'New review' } });
-  expect(restaurantInput.value).toBe('New review');
+  const ratingInput = screen.getByLabelText('Rating:');
+  fireEvent.change(ratingInput, { target: { value: 2 } });
 
-  const descriptionInput = screen.getByLabelText('description');
-  fireEvent.change(descriptionInput, { target: { value: 'review description' } });
-  expect(descriptionInput.value).toBe('review description');
+  const reviewInput = screen.getByLabelText('Review:');
+  fireEvent.change(reviewInput, { target: { value: 'New Review 1' } });
+  screen.debug();
+
+  const button = screen.getByTestId('submit');
+  fireEvent.click(button);
+  mockReviews.push(mockReview);
+
+  await screen.findByText(/Wackarnolds/i);
+  screen.debug();
 });
