@@ -9,11 +9,10 @@ export default function CreateReview() {
   const { setLoading } = useReview();
 
   const handleClick = async (restaurant, description, rating) => {
-  
     setLoading(true);
     try {
       await makeReview(restaurant, description, rating);
-      
+
       history.push('/reviews');
     } catch (e) {
       //eslint-disable-next-line
