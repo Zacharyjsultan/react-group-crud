@@ -74,3 +74,40 @@ test('authenticated users should be able to see a list of reviews', async () => 
   // await screen.findByText(/Edit/i);
   await screen.findByText(/restaurant 2/i);
 });
+
+const mockReview = {
+  id: 3,
+  restaurant: 'New Restaurant 1',
+  rating: 2,
+  description: 'New Review 1',
+  user_id: '60ff81ec-a8e4-46e5-a34c-113025ffbd6b',
+};
+
+test('authenticated users can edit their reviews', async () => {
+  authFns.getUser.mockReturnValue(mockUser);
+  reviewsFns.getReviews.mockReturnValue(mockReviews);
+  reviewsFns.makeReview.mockReturnValue(mockReview);
+  render(
+    <UserProvider>
+      <MemoryRouter initialEntries={['/review/form/create']}>
+        <App />
+      </MemoryRouter>
+    </UserProvider>
+  );
+  const restaurantInput = screen.getByLabelText('Restaurant:');
+  fireEvent.change(restaurantInput, { target: { value: 'New Restaurant 1' } });
+
+  const ratingInput = screen.getByLabelText('Rating:');
+  fireEvent.change(ratingInput, { target: { value: 2 } });
+
+  const reviewInput = screen.getByLabelText('Review:');
+  fireEvent.change(reviewInput, { target: { value: 'New Review 1' } });
+  screen.debug();
+
+  const button = screen.getByTestId('submit');
+  fireEvent.click(button);
+  mockReviews.push(mockReview);
+  screen.debug();
+  await screen.findByText(/New Restaurant 1/i);
+  screen.debug();
+});

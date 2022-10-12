@@ -13,19 +13,23 @@ export default function ReviewForm({
   const [descriptionInput, setDescriptionInput] = useState(description);
 
   return (
-    <div className='updater'>
-      <h2>Restaurant Reviewer</h2>
+    <div className="updater">
+      {/* <h2>Restaurant Reviewer</h2> */}
 
+      <label htmlFor="restaurant">Restaurant:</label>
       <input
+        id="restaurant"
         type="text"
         value={restaurantInput}
         placeholder="'Restaurant'"
         onChange={(e) => setRestaurantInput(e.target.value)}
       />
 
-      <h3>Rating</h3>
+      {/* <h3>Rating</h3> */}
 
+      <label htmlFor="rating">Rating:</label>
       <input
+        id="rating"
         type="number"
         value={ratingInput}
         placeholder="1/5"
@@ -34,7 +38,9 @@ export default function ReviewForm({
         onChange={(e) => setRatingInput(e.target.value)}
       />
 
+      <label htmlFor="review">Review:</label>
       <input
+        id="review"
         type="text"
         value={descriptionInput}
         placeholder="description"
@@ -42,6 +48,7 @@ export default function ReviewForm({
       />
 
       <button
+        data-testid="submit"
         onClick={() => {
           clickHandler(restaurantInput, descriptionInput, ratingInput);
         }}
