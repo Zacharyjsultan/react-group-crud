@@ -65,6 +65,8 @@ test('user can sign in', async () => {
   // and to access the page of posts
   // we're able to know this worked because of the change in the heading with the personal message
   expect(headerText).toBeInTheDocument();
+  // screen.debug();
+  // displays html in the terminal to double check if our test really passed/ did what you wanted it to do
 });
 
 const fakePosts = [
